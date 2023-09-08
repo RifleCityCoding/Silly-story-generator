@@ -33,18 +33,20 @@ function result() {
     newStory = newStory.replaceAll(':insertz:', zItem);
 
     /* Here we are making a variable that replaces John Doe (The default name) with name of users choice*/
-    
+
   if(customName.value !== '') {
     const name = customName.value;
     newStory = newStory.replaceAll('John Doe', name)
   }
+  /*Converting our US measurements to UK when the UK button is checked*/
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
-
+    const weight = `${Math.round(300*0.0714286)} stone`;
+    const temperature =  `${Math.round((94-32) * 5 / 9)} centigrade`;
+    newStory= newStory.replaceAll('94 Fahrenheit', temperature);
+    newStory = newStory.replaceAll('300 pounds', weight);
   }
 
-  story.textContent = ;
+  story.textContent = newStory;
   story.style.visibility = 'visible';
 }
