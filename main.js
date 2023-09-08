@@ -13,7 +13,7 @@ const storyText = 'It was :insertTemp: fahrenheit outside, so :insertx: went for
 const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
 const insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
 const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away']
-const insertTemp = tempItem
+/*const insertTemp = tempItem*/
 
 randomize.addEventListener('click', result);
 
@@ -45,7 +45,7 @@ function result() {
 
   if(document.getElementById("uk").checked) {
     const weight = `${Math.round(300*0.0714286)} stone`;
-    const temperature =  `${Math.round((insertTemp-32) * 5 / 9)} centigrade`;
+    const temperature =  `${Math.round((tempItem - 32) * 5 / 9)} centigrade`;
     newStory= newStory.replaceAll(':insertTemp:', temperature);
     newStory = newStory.replaceAll('300 pounds', weight);
   }
