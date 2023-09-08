@@ -13,7 +13,6 @@ const storyText = 'It was :insertTemp: fahrenheit outside, so :insertx: went for
 const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
 const insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
 const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away']
-const insertTemp = math.Random() * 100 
 
 randomize.addEventListener('click', result);
 
@@ -25,7 +24,7 @@ function result() {
     const xItem = randomValueFromArray(insertX);
     const yItem = randomValueFromArray(insertY);
     const zItem = randomValueFromArray(insertZ);
-    const tempItem = randomValueFromArray(insertTemp);
+    const tempItem = Math.floor(Math.random() * 100);
 
 
     /* This replaces our placeholders in newStory */
