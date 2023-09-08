@@ -9,42 +9,47 @@ function randomValueFromArray(array){
 
 /* Here we are creating the variables */
 
-const storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.'
+const storyText = 'It was :insertTemp: fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.'
 const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
 const insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
 const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away']
-
+const insertTemp = math.Random() * 100 
 
 randomize.addEventListener('click', result);
 
 function result() {
-    var newStory = storyText;
+    let newStory = storyText;
 
     /* Here we are attaching our variables to the random value Array */
 
     const xItem = randomValueFromArray(insertX);
     const yItem = randomValueFromArray(insertY);
     const zItem = randomValueFromArray(insertZ);
+    const tempItem = randomValueFromArray(insertTemp);
+
 
     /* This replaces our placeholders in newStory */
 
     newStory = newStory.replaceAll(':insertx:', xItem);
     newStory = newStory.replaceAll(':inserty:', yItem);
     newStory = newStory.replaceAll(':insertz:', zItem);
+    newStory = newStory.replaceAll(':insertTemp:', tempItem);
 
     /* Here we are making a variable that replaces John Doe (The default name) with name of users choice*/
-    
+
   if(customName.value !== '') {
     const name = customName.value;
     newStory = newStory.replaceAll('John Doe', name)
   }
+  /*Converting our US measurements to UK when the UK button is checked*/
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
-
+    const weight = `${Math.round(300*0.0714286)} stone`;
+    const temperature =  `${Math.round((94-32) * 5 / 9)} centigrade`;
+    newStory= newStory.replaceAll('94 Fahrenheit', temperature);
+    newStory = newStory.replaceAll('300 pounds', weight);
   }
 
-  story.textContent = ;
+  story.textContent = newStory;
   story.style.visibility = 'visible';
 }
