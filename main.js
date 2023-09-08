@@ -25,7 +25,7 @@ function result() {
     const xItem = randomValueFromArray(insertX);
     const yItem = randomValueFromArray(insertY);
     const zItem = randomValueFromArray(insertZ);
-    const tempItem = randomValueFromArray(insertTemp);
+    let tempItem = randomValueFromArray(insertTemp);
 
 
     /* This replaces our placeholders in newStory */
@@ -46,7 +46,7 @@ function result() {
   if(document.getElementById("uk").checked) {
     const weight = `${Math.round(300*0.0714286)} stone`;
     const temperature =  `${Math.round((tempItem - 32) * 5 / 9)} centigrade`;
-    newStory= newStory.replaceAll('tempItem', temperature);
+    newStory= newStory.replaceAll(':insertTemp:', temperature);
     newStory = newStory.replaceAll('300 pounds', weight);
   }
 
