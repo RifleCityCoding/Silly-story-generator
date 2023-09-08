@@ -13,7 +13,7 @@ const storyText = 'It was :insertTemp: fahrenheit outside, so :insertx: went for
 const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
 const insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
 const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away']
-let insertTemp = [Math.floor(Math.random() * 100)];
+
 
 randomize.addEventListener('click', result);
 
@@ -25,7 +25,8 @@ function result() {
     const xItem = randomValueFromArray(insertX);
     const yItem = randomValueFromArray(insertY);
     const zItem = randomValueFromArray(insertZ);
-    let tempItem = randomValueFromArray(insertTemp);
+    let insertTemp = [Math.floor(Math.random() * 100)];
+  
 
 
     /* This replaces our placeholders in newStory */
@@ -33,7 +34,7 @@ function result() {
     newStory = newStory.replaceAll(':insertx:', xItem);
     newStory = newStory.replaceAll(':inserty:', yItem);
     newStory = newStory.replaceAll(':insertz:', zItem);
-    newStory = newStory.replaceAll(':insertTemp:', tempItem);
+    newStory = newStory.replaceAll(':insertTemp:', insertTemp);
 
     /* Here we are making a variable that replaces John Doe (The default name) with name of users choice*/
 
