@@ -13,7 +13,7 @@ const storyText = 'It was :insertTemp: fahrenheit outside, so :insertx: went for
 const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
 const insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
 const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away']
-const insertTemp = [random]
+const insertTemp = tempItem
 
 randomize.addEventListener('click', result);
 
